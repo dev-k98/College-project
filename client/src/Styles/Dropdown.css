@@ -1,0 +1,38 @@
+.dropdown {
+	list-style: none;
+	position: absolute;
+	width: max-content;
+	box-sizing: border-box;
+	right: -10%;
+	text-align: start;
+	padding: 20px 10px;
+	/* border-radius: 15px; */
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.158),
+		1px 0px 5px rgba(0, 0, 0, 0.336);
+	background-color: #f2f2f2;
+	z-index: 10;
+}
+
+.prtag,
+a {
+	text-decoration: none;
+	color: black;
+	font-family: Poppins, sans-serif;
+	font-size: 10px;
+}
+
+.prtag {
+	margin: 2px auto;
+	padding: 5px 15px;
+	transition: 0.2s ease-in;
+}
+
+.viw,
+.edt {
+	font-size: 15px;
+	font-weight: bold;
+}
+.prtag:hover {
+	/* border-radius: 10px; */
+	background-color: #d8d8d8;
+}

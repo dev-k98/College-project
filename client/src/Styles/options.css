@@ -1,0 +1,29 @@
+.options {
+	background-color: #03588c;
+	padding: 5px 50px;
+}
+.opt-bt {
+	border: none;
+	outline: none;
+	font-size: 14px;
+	padding: 5px 10px;
+	margin: 0 10px;
+	border-radius: 5px;
+	font-family: Raleway, sans-serif;
+	background-color: #0d0c0c18;
+	color: #0d0c0c;
+	background-color: #f2f2f2;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.158),
+		1px 0px 5px rgba(0, 0, 0, 0.336);
+	transition: all 0.2s ease-in-out;
+}
+.deal-cart,
+.message {
+	float: right;
+}
+
+.opt-bt:hover {
+	color: #f2f2f2;
+	font-weight: bold;
+	background-color: #8c1b1b;
+}

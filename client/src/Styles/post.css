@@ -1,0 +1,129 @@
+.posts,
+.container {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+}
+.posts {
+	display: flex;
+	align-items: center;
+	width: 90%;
+	margin: 0 auto;
+}
+.container {
+	box-sizing: border-box;
+	margin: auto;
+	/* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.205), 0 5px 10px rgb(0, 0, 0, 0.1); */
+}
+
+.post-container {
+	box-sizing: border-box;
+	display: flex;
+	margin: auto;
+	width: 100%;
+}
+.title-bar {
+	font-family: poppins, sans-serif;
+	font-weight: bold;
+	margin: auto 40px;
+	padding: 0 50px;
+	display: flex;
+	align-items: center;
+	height: 80px;
+	color: black;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	color: rgb(0, 0, 0);
+	justify-content: center;
+	align-items: center;
+	height: 20rem;
+	padding: 1rem 1rem;
+	width: 12rem;
+	margin: 10px;
+	border-radius: 5px;
+	/* border-left: 1px solid black;
+	border-right: 1px solid black; */
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.205),
+		-1px -1px 10px rgb(0, 0, 0, 0.1);
+	/* position: relative; */
+}
+.image {
+	max-height: 150px;
+	min-height: 7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.image img {
+	height: 150px;
+	object-fit: cover;
+}
+.card {
+	font-family: "poppins", sans-serif;
+	background-size: cover;
+	height: auto;
+	width: 12rem;
+	padding: 1rem 1rem;
+	transform-style: preserve-3d;
+	transition: all 0.5s ease-in-out;
+}
+.info {
+	transition: all 0.5s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info h2 {
+	font-size: 1rem;
+	margin-top: 0.5rem;
+}
+
+.buttons {
+	font-family: poppins;
+	display: flex;
+	justify-content: space-around;
+}
+
+.buttons button {
+	font-family: poppins;
+	border: none;
+	border-radius: 5px;
+
+	outline: none;
+	margin-top: 10px;
+	padding: 0.5rem 0.5rem;
+	color: rgb(156, 156, 156);
+	background-color: rgba(3, 3, 3, 0.63);
+	cursor: pointer;
+}
+
+.buttons button:hover {
+	background-color: rgb(151, 144, 144);
+	color: rgb(255, 255, 255);
+}
+
+.btn {
+	position: absolute;
+	outline: none;
+	height: 90%;
+	width: 3%;
+	background-color: rgba(71, 66, 66, 0.233);
+	padding: 5px 5px;
+	border: none;
+}
+
+.next {
+	z-index: 10;
+	left: 0%;
+	transform: rotate(180deg);
+	transition: all 0.3s ease-in;
+}
+.prev {
+	transition: all 0.3s ease-in;
+	right: 0%;
+	z-index: 10;
+}

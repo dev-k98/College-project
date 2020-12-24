@@ -1,0 +1,58 @@
+.navbar {
+	display: flex;
+	padding: 10px 0;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #0d0c0c31;
+}
+
+.head-elem {
+	margin: 0 5px;
+	/* color: #047454; */
+}
+
+.navi-icons {
+	list-style-type: none;
+	display: flex;
+	font-family: Poppins, sans-serif;
+	font-size: 1rem;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 5px 40px;
+}
+.nvi-opt {
+	padding: 5px 15px;
+	margin: 10px;
+	border-radius: 15px;
+	transition: 0.2s ease-in-out;
+}
+
+/* profile */
+.profile {
+	width: 50px;
+	height: 50px;
+	outline: none;
+	border-radius: 50%;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.158),
+		1px 0px 5px rgba(0, 0, 0, 0.336);
+	transition: 0.4s ease-in-out;
+}
+.logo {
+	/* position: absolute; */
+	margin: 5px 40px;
+	width: 50px;
+	height: 50px;
+}
+.nvi-opt:hover {
+	font-family: poppins, sans-serif;
+	color: #f2f2f2;
+	background: #03578ce1;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.158),
+		1px 0px 10px rgba(0, 0, 0, 0.336);
+}
+.profile:hover {
+	position: relative;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.158),
+		1px 0px 20px rgba(0, 0, 0, 0.336);
+}

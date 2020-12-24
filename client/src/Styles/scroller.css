@@ -1,0 +1,51 @@
+.Scroller-cont {
+	overflow: hidden;
+	position: relative;
+	margin: 20px 40px;
+	padding: 0;
+}
+
+.Scrollerslider {
+	display: flex;
+	width: 100%;
+	height: 300px;
+}
+
+img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.backword,
+.forword {
+	height: 100%;
+	width: 3%;
+	position: absolute;
+	margin: auto 0;
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.116);
+	padding: 5px 5px;
+	z-index: 10;
+	border: none;
+}
+
+.forword {
+	right: 0%;
+	transition: all 0.2s ease-in;
+}
+.backword {
+	left: 0%;
+	transition: all 0.2s ease-in;
+}
+
+.backword:hover,
+.forword:hover {
+	background-color: #91919141;
+	animation: blink 0.7s ease-in-out infinite;
+}
+
+@keyframes blink {
+	50% {
+		width: 5%;
+	}
+}
