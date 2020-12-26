@@ -1,10 +1,10 @@
 import React from "react"
-import Nevbar from "../Navbar"
+import Navbar from "../Navbar"
 
 export default function Profile() {
 	return (
 		<>
-			<Nevbar />
+			<Navbar />
 			Profile
 		</>
 	)

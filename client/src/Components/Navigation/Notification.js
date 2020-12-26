@@ -1,10 +1,10 @@
 import React from "react"
-import Nevbar from "../Navbar"
+import Navbar from "../Navbar"
 
 export default function Notification() {
 	return (
 		<div>
-			<Nevbar />
+			<Navbar />
 			<h1>Notification</h1>
 		</div>
 	)

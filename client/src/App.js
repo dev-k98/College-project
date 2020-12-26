@@ -7,10 +7,11 @@ import Register from "./Components/Profile/Register"
 import Login from "./Components/Profile/Login"
 import Notification from "./Components/Navigation/Notification"
 import About from "./Components/Navigation/About"
+import Upload from "./Components/options/Upload"
 
 export default function App() {
 	return (
-		<div>
+		<>
 			<Router>
 				<Route path='/' exact component={Home} />
 				<Route path='/home' exact component={Home} />
@@ -19,7 +20,8 @@ export default function App() {
 				<Route path='/login' component={Login} />
 				<Route path='/Notifications' component={Notification} />
 				<Route path='/About' component={About} />
+				<Route path='/upload' component={Upload} />
 			</Router>
-		</div>
+		</>
 	)
 }

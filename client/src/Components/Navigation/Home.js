@@ -1,7 +1,7 @@
 import React from "react"
 
 import Navbar from "../Navbar"
-import Options from "../Options"
+import Options from "../options/Options"
 import PostFirst from "../PostFirst"
 import SecondPost from "../SecondPost"
 import Scroller from "../Scroller"

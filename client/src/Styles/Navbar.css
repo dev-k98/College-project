@@ -1,10 +1,12 @@
 .navbar {
+	/* position: absolute; */
 	display: flex;
 	padding: 10px 0;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #0d0c0c31;
+	z-index: 10;
 }
 
 .head-elem {

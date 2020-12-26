@@ -7,7 +7,7 @@ import profile from "../Images/profile.svg"
 import logo from "../Images/logo.svg"
 import Dropdown from "./Dropdown"
 
-export default function Nevbar() {
+export default function Navbar() {
 	const [dropdown, setDropdown] = useState(false)
 
 	const mouseEntered = () => {

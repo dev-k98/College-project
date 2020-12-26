@@ -8,8 +8,8 @@ export default function Dropdown() {
 		<div className='dropdown'>
 			{Dropmenu.map((items, index) => {
 				return (
-					<Link to={items.link}>
-						<li key={index} className={`${items.class} prtag`}>
+					<Link to={items.link} key={index}>
+						<li className={`${items.class} prtag`}>
 							{items.title}
 						</li>
 					</Link>
