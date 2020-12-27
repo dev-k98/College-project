@@ -55,7 +55,7 @@ export default function Login(props) {
 					></input>
 					<input
 						className='inpcmpt'
-						type='current-password'
+						type='password'
 						placeholder='password'
 						value={cred.password}
 						onChange={e =>

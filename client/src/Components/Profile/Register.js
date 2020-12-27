@@ -75,7 +75,7 @@ export default function Register(props) {
 					></input>
 					<input
 						className='password inpcmpt'
-						type='current-password'
+						type='password'
 						placeholder='Password'
 						value={cred.password}
 						onChange={e =>
@@ -84,7 +84,7 @@ export default function Register(props) {
 					></input>
 					<input
 						className='inpcmpt'
-						type='current-password'
+						type='password'
 						placeholder='Confirm Password'
 						value={cred.confirmpassword}
 						onChange={e =>
