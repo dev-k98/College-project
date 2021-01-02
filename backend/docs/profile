@@ -1,0 +1,26 @@
+r1- to get a specific profile- eg of user1 ,user id(stored as _id in user cluster)
+ @type    get
+ @route   /api/profile/userid
+ @desc    route for getting specific profile
+
+
+
+r2- to post new profile of user - eg of user1 ,user id(stored as _id in user cluster)
+@type    POST
+@route   /api/profile
+@desc    route for adding profile
+example data-----------------
+(use user id from login person details in cookies)
+{  "userid":"123bfd",
+  "firstname":"rashi",
+  "lastname": "malviya",
+  "images": ["gh","rt/yu"],
+  "about":"about",
+ "feedback":"ok",
+  "phoneno": "78983567",
+  "address": "bhopal"
+}
+
+
+
+
