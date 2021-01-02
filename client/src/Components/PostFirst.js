@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react"
 import "../Styles/post.css"
+import { Link } from "react-router-dom"
 
 import book1 from "../Images/img3.jpeg"
 import next from "../Images/arrow-point-to-right.svg"
@@ -97,11 +98,16 @@ export default function PostFirst() {
 				<button className='btn next' onClick={prevpost}>
 					<img src={next} alt='' />
 				</button>
-				<div className='container'>
-					<div ref={container} className='post-container'>
-						<CreateCards details={postData} className='card-flow' />
+				<Link to=''>
+					<div className='container'>
+						<div ref={container} className='post-container'>
+							<CreateCards
+								details={postData}
+								className='card-flow'
+							/>
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</>
 	)
