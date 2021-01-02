@@ -4,7 +4,9 @@ import { Link } from "react-router-dom"
 
 //image
 import profile from "../Images/profile.svg"
-import logo from "../Images/logo.svg"
+import search from "../Images/search.png"
+
+import logo from "../Images/logo1.svg"
 import Dropdown from "./Dropdown"
 
 export default function Navbar() {
@@ -19,17 +21,23 @@ export default function Navbar() {
 
 	return (
 		<div className='navbar'>
-			<h1 className='logo head-elem'>
+			<h1 className='head-elem'>
 				<Link to='/Home'>
-					<img src={logo} alt='Barter' />
+					<img className='logo' src={logo} alt='Barter' />
 				</Link>
+				<div className='search-section'>
+					<input className='search' placeholder='Search...'></input>
+					<button className='search-button'>
+						<img src={search} alt='search' />
+					</button>
+				</div>
 			</h1>
 			<ul className='navi-icons'>
 				<Link to='/Home'>
 					<li className='home nvi-opt'>Home</li>
 				</Link>
 				<Link to='/Notifications'>
-					<li className='nftn nvi-opt'>Notifications</li>
+					<li className='nftn nvi-opt'>Inbox</li>
 				</Link>
 				<Link to='/About'>
 					<li className='about nvi-opt'>About</li>
@@ -37,10 +45,10 @@ export default function Navbar() {
 				<div
 					onMouseEnter={mouseEntered}
 					onMouseLeave={mouseLeaves}
-					className='profile head-elem'
+					className='profile'
 				>
-					<Link to='/profile'>
-						<img src={profile} alt='Profile' />
+					<Link to='/profile' className='nvi-opt'>
+						Join
 					</Link>
 					{dropdown && <Dropdown />}
 				</div>

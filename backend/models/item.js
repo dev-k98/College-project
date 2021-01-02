@@ -1,3 +1,4 @@
+const { Binary } = require("mongodb")
 const mongoose = require("mongoose")
 const SchemaItem = new mongoose.Schema({
 	user_id: {
@@ -21,7 +22,7 @@ const SchemaItem = new mongoose.Schema({
 		required: true,
 	},
 	video: { type: Array },
-	images: { type: Buffer },
+	images: { type: Buffer, contentType: String },
 	item_description: {
 		type: String,
 		required: true,

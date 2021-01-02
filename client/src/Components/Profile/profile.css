@@ -1,0 +1,15 @@
+.profile-main {
+	display: flex;
+	justify-content: center;
+}
+
+.req-excng,
+.ofrd-excng {
+	height: 200px;
+	width: 100%;
+	background-color: bisque;
+}
+.req-excng::after,
+.ofrd-excng::after {
+	text-indent: "+";
+}

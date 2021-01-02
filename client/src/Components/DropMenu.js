@@ -15,6 +15,16 @@ export const Dropmenu = [
 		class: "cred",
 	},
 	{
+		title: "Offer Exchange",
+		link: "/post/:user",
+		class: "lgt",
+	},
+	{
+		title: "Request Exchange",
+		link: "/upload",
+		class: "lgt",
+	},
+	{
 		title: "Log out",
 		link: "/logout",
 		class: "lgt",

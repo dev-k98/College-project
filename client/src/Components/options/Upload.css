@@ -1,0 +1,12 @@
+.lables {
+	padding: 0;
+	margin: 0;
+}
+.inputupload {
+	margin-top: 0;
+	align-items: center;
+}
+
+.fileupload {
+	outline: none;
+}
