@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Navbar from "../Navbar"
 import "./profile.css"
 
 export default function Profile() {
+	const [visited, setvisited] = useState(false)
+
+	useEffect(() => {}, [visited])
 	return (
 		<>
 			<Navbar />
