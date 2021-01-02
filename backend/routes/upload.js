@@ -42,9 +42,9 @@ router.post("/", upload.single("file"), (req, res) => {
 		let end_img = img.toString("base64")
 
 		let image = {
-			content_type: req.file.mimetype,
+			contentType: req.file.mimetype,
 			path: req.file.path,
-			image: new Buffer(end_img, "base64"),
+			image: new Buffer.from(end_img, "base64"),
 		}
 		const newItem = new Item({
 			item_name: item_name,
@@ -58,11 +58,14 @@ router.post("/", upload.single("file"), (req, res) => {
 			.save()
 			.then(value => {
 				console.log(value)
+				// res.send(value)
 			})
-			.catch(value => console.log(value.images))
-		res.status(200).send("ok")
-		//pathhere = req.file.path;
-		//res.send({ path: pathhere.slice(8, pathhere.length) });
+
+			.catch()
+		// res.status(200).send("ok")
+		// res.send(res)
+		pathhere = req.file.path
+		res.send({ path: pathhere.slice(8, pathhere.length) })
 	} catch (err) {
 		res.status(400).send(err)
 	}

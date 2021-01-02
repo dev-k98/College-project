@@ -1,0 +1,14 @@
+.inbox-main {
+	display: flex;
+	justify-content: space-between;
+	/* align-items: center; */
+}
+
+.contacts {
+	width: 40%;
+	background-color: blue;
+}
+.chat-box {
+	width: 60%;
+	background-color: blue;
+}
