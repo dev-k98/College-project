@@ -12,33 +12,30 @@ router.get("/:userid", async (req, res) => {
 
 // @type    POST
 // @route   /api/profile
-// @desc    route for adding profile
+// @desc    route for adding and editing profile
 
 router.post("/", async (req, res) => {
-  Profile(req.body).save(function (err, doc) {
-    if (err) {
-      console.log("Post data error");
-      res.send(`Error ${err.message} `);
-    } else {
-      console.log("Post data success");
-      res.send(doc);
-    }
-  });
-});
-//under development-------------------------------------
-// @type    POST
-// @route   /api/profile/edit
-// @desc    route for editing profile
-router.post("/edit", async (req, res) => {
-  Profile(req.body).save(function (err, doc) {
-    if (err) {
-      console.log("Post data error");
-      res.send(`Error ${err.message} `);
-    } else {
-      console.log("Post data success");
-      res.send(doc);
-    }
-  });
+  Profile.findOneAndUpdate(
+    {
+      userid: req.body.userid,
+    },
+    {
+      $set: {
+        userid: req.body.userid,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        images: req.body.images,
+        about: req.body.about,
+        feedback: req.body.feedback,
+        phoneno: req.body.phoneno,
+        address: req.body.address,
+      },
+    },
+
+    { new: true, upsert: true }
+  )
+    .then((res) => res.send(res))
+    .catch((err) => res.send(err));
 });
 
 module.exports = router;
