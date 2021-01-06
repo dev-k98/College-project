@@ -1,75 +1,39 @@
 import React, { useEffect, useState, useRef } from "react"
 import "../Styles/post.css"
-import { Link } from "react-router-dom"
+import axios from "axios"
 
-import book1 from "../Images/img3.jpeg"
 import next from "../Images/arrow-point-to-right.svg"
-import book2 from "../Images/download.png"
-import book3 from "../Images/img2.jpeg"
 import CreateCards from "./CreateCards"
 
-let init = [
-	{
-		image: book1,
-		descr: "The Alchemist",
-		exch: "Book/game",
-	},
-]
-
-let objects = [
-	{
-		image: book2,
-		descr: "Harry Potter",
-		exch: "Book/game",
-	},
-	{
-		image: book3,
-		descr: "The Alchemist",
-		exch: "Book/game",
-	},
-	{
-		image: book1,
-		descr: "Harry Potter",
-		exch: "Book/game",
-	},
-	{
-		image: book1,
-		descr: "The Alchemist",
-		exch: "Book/game",
-	},
-	{
-		image: book3,
-		descr: "Harry Potter",
-		exch: "Book/game",
-	},
-	{
-		image: book2,
-		descr: "The Alchemist",
-		exch: "Book/game",
-	},
-	{
-		image: book1,
-		descr: "Harry Potter",
-		exch: "Book/game",
-	},
-	{
-		image: book2,
-		descr: "The Alchemist",
-		exch: "Book/game",
-	},
-]
-
 export default function PostFirst() {
-	const [postData, setPostData] = useState(init)
+	const [itemData, setitemData] = useState([])
 	const [card, setCard] = useState(0)
 	const container = useRef()
+
+	const [vis, setvis] = useState(false)
+
 	useEffect(() => {
 		container.current.style.transform = `translateX(${
 			(-container.current.clientWidth / 2) * card
 		}px)`
 
-		setPostData([...init, ...objects])
-	}, [card])
+		if (!vis) fetchItems()
+	}, [card, vis])
+
+	const fetchItems = () => {
+		axios({
+			method: "GET",
+			url: "http://localhost:7000/item/",
+		})
+			.then(res => storeItems(res))
+			.catch(err => console.log(err))
+		setvis(!vis)
+	}
+
+	const storeItems = data => {
+		setitemData(data.data)
+		for (let i = 0; i < data.data.length; i++) {}
+	}
 
 	const nextpost = () => {
 		if (card < 3) {
@@ -98,16 +62,11 @@ export default function PostFirst() {
 				<button className='btn next' onClick={prevpost}>
 					<img src={next} alt='' />
 				</button>
-				<Link to=''>
-					<div className='container'>
-						<div ref={container} className='post-container'>
-							<CreateCards
-								details={postData}
-								className='card-flow'
-							/>
-						</div>
+				<div className='container'>
+					<div ref={container} className='post-container'>
+						<CreateCards details={itemData} className='card-flow' />
 					</div>
-				</Link>
+				</div>
 			</div>
 		</>
 	)

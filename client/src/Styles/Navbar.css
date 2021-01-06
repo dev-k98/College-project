@@ -3,9 +3,9 @@
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 10;
-	background-color: #0540f2;
-	border-bottom: 1px solid #1e56fc;
+	z-index: 20;
+	background-color: #023047;
+	border-bottom: 1px solid #023047;
 }
 
 .navi-icons {
@@ -22,7 +22,7 @@
 	height: 100%;
 	color: #f2f2f2;
 	padding: 23px 15px;
-	border: 1px solid #1e56fc;
+	border: 2px solid transparent;
 	transition: 0.2s ease-in-out;
 }
 .head-elem {
@@ -52,7 +52,7 @@
 .nvi-opt:hover {
 	font-family: poppins, sans-serif;
 	color: #f2f2f2;
-	border-bottom: 1px solid #f2f2f2;
+	border-bottom: 2px solid #f2f2f2;
 }
 .profile:hover {
 	position: relative;

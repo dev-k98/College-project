@@ -38,7 +38,11 @@ export default function Upload(props) {
 	const handleData = data => {
 		if (data.status !== 200) {
 			console.log(data)
-		} else props.history.push("/photos", { response: data })
+		} else
+			props.history.push({
+				pathname: "/home",
+				response: { response: data },
+			})
 	}
 
 	return (

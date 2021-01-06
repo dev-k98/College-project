@@ -14,11 +14,11 @@ router.get("/", async (req, res) => {
 		(err, result) => {
 			if (err) throw err
 			else {
-				res.send(result[5].images)
+				// res.send(result[5].images)
 			}
 		}
 	)
-	// res.send(item)
+	res.send(item)
 })
 
 // @type    POST

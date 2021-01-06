@@ -1,0 +1,21 @@
+.site-footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background-color: #023047;
+}
+.footer-links {
+	/* overflow: hidden; */
+	text-decoration: none;
+	font-family: Raleway;
+	color: wheat;
+	padding: 5px;
+	font-size: 14px;
+	margin: 0 10px;
+	border-bottom: 1px solid transparent;
+}
+
+.footer-links:hover {
+	border-bottom: 1px solid white;
+}

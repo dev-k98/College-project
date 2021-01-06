@@ -1,0 +1,87 @@
+.outer-cont,
+.outer-team {
+	padding: 3rem;
+	display: flex;
+	justify-content: center;
+	margin: 1rem auto;
+	align-items: center;
+	width: 80%;
+	position: relative;
+}
+
+.mission {
+	font-size: 5rem;
+	box-sizing: content-box;
+	position: absolute;
+	color: #e63946;
+	top: 0;
+	font-family: Raleway;
+	text-shadow: 2px 2px #f1faee;
+	font-weight: bold;
+}
+
+.our-mission {
+	background-color: #a8dadc;
+	border-radius: 3px;
+	font-weight: bold;
+	font-family: Poppins, sans-serif;
+	font-size: 16px;
+	right: 0;
+	width: 70%;
+	text-align: center;
+	padding: 2rem;
+}
+
+.our-team {
+	position: absolute;
+	box-sizing: content-box;
+	box-sizing: content-box;
+	font-size: 5rem;
+	top: 0;
+	color: #e63946;
+	font-family: Raleway;
+	z-index: 1;
+	text-shadow: 2px 2px #f1faee;
+	font-weight: bold;
+}
+.mem-details {
+	width: 100%;
+	display: flex;
+	padding: 1rem;
+	padding: 3rem 0;
+	justify-content: space-around;
+	text-align: center;
+}
+.photo-cont {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	right: 0;
+}
+.prophoto {
+	object-fit: fill;
+	width: 150px;
+	position: absolute;
+	height: 150px;
+	top: -2rem;
+	background-color: #e63946;
+	left: -2rem;
+	border-radius: 50%;
+	box-shadow: 1px 1px 10px #457b9d, 2px 2px 10px #457b9d;
+	overflow: hidden;
+}
+
+.prophoto img {
+	height: 150px;
+	width: 150px;
+}
+.bubble {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	font-family: Poppins, sans-serif;
+	padding: 1rem 0;
+	width: 200px;
+	background-color: #a8dadc;
+	height: 200px;
+}

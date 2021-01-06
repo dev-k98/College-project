@@ -9,6 +9,7 @@ import Inbox from "./Components/Navigation/Inbox"
 import About from "./Components/Navigation/About"
 import Upload from "./Components/options/Upload"
 import Photos from "./Components/Photos"
+import Post from "./Components/Post"
 
 export default function App() {
 	return (
@@ -23,6 +24,7 @@ export default function App() {
 				<Route path='/About' component={About} />
 				<Route path='/upload' component={Upload} />
 				<Route path='/photos' component={Photos} />
+				<Route path='/post' component={Post} />
 			</Router>
 		</>
 	)

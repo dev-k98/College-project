@@ -105,7 +105,18 @@ export default function Register(props) {
 					</Link>
 				</footer>
 			</div>
-			<Footer />
+			<div
+				style={{
+					position: "fixed",
+					bottom: 0,
+					width: "100%",
+					"background-color": "black",
+					color: "white",
+					"text-align": "center",
+				}}
+			>
+				<Footer />
+			</div>
 		</>
 	)
 }

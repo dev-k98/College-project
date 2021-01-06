@@ -5,5 +5,8 @@
 	outline: none;
 }
 body {
+	text-decoration: none;
 	min-width: 550px;
+	height: 100%;
+	position: relative;
 }
