@@ -1,34 +1,68 @@
-import React, { useEffect, useState } from "react"
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import Navbar from "../Navbar"
+import axios from "axios"
 import "./profile.css"
+import img from "../../Images/profile.svg"
+import Footer from "../Footer"
 
-export default function Profile() {
-	const [visited, setvisited] = useState(false)
+export default function Profile(props) {
+	const [vis, setvis] = useState(false)
+	const [profile, setprofile] = useState({})
 
-	useEffect(() => {}, [visited])
+	useEffect(() => {
+		fetchData()
+	}, [vis])
+
+	const fetchData = () => {
+		axios({
+			method: "GET",
+			url: `http://localhost:7000/users/${props.match.params.email}`,
+		}).then(res => setprofile(res.data[0]))
+	}
+	console.log(profile)
+	if (!vis) setvis(!vis)
+
 	return (
 		<>
 			<Navbar />
 			<div className='profile-main'>
 				<div className='profile-photo'>
-					<img src='#' alt='DP' />
-					<h1>Dev Babarwal</h1>
-					<p>Geeta colony chandrawatiganj</p>
-					<p>8966050903</p>
+					<img className='photo' src={img} alt='DP' />
+					<div className='details'>
+						<div className='name'>{profile.name}</div>
+
+						<div className='username'>{profile.username}</div>
+						<div className='profile-about'>{profile.about}</div>
+						<div className='profile-address'>{profile.address}</div>
+						<div className='number'>{profile.phoneno}</div>
+					</div>
+					<h3 className='edit'>
+						<Link to={{ pathname: `/edit/${profile.email}` }}>
+							<span>Edit profile</span>
+						</Link>
+					</h3>
 				</div>
 				<div className='profile-details'>
-					<h1>Hey ! This is Dev</h1>
-
-					<p>Geeta colony chandrawatiganj</p>
-
-					<h3>
-						Edit profile <span>|</span> view profile
-					</h3>
-					<h4>Requested exchanges</h4>
-					<div className='req-excng'></div>
-					<h4>Offered exchanges</h4>
-					<div className='ofrd-excng'></div>
+					<div className='name'>Hi ! This is {profile.name}</div>
+					<div className='req-excng'>
+						<h3>Requested exchanges</h3>
+					</div>
+					<div className='ofrd-excng'>
+						<h3>Offered exchanges</h3>
+					</div>
 				</div>
+			</div>
+			<div
+				style={{
+					bottom: 0,
+					width: "100%",
+					backgroundColor: "black",
+					color: "white",
+					textAlign: "center",
+				}}
+			>
+				<Footer />
 			</div>
 		</>
 	)

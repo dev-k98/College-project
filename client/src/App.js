@@ -10,6 +10,7 @@ import About from "./Components/Navigation/About"
 import Upload from "./Components/options/Upload"
 import Photos from "./Components/Photos"
 import Post from "./Components/Post"
+import Edit from "./Components/Profile/Edit"
 
 export default function App() {
 	return (
@@ -17,14 +18,15 @@ export default function App() {
 			<Router>
 				<Route path='/' exact component={Home} />
 				<Route path='/home' exact component={Home} />
-				<Route path='/profile' component={Profile} />
+				<Route path='/profile/:email' component={Profile} />
 				<Route path='/signup' component={Register} />
 				<Route path='/login' component={Login} />
 				<Route path='/Notifications' component={Inbox} />
 				<Route path='/About' component={About} />
 				<Route path='/upload' component={Upload} />
 				<Route path='/photos' component={Photos} />
-				<Route path='/post' component={Post} />
+				<Route path='/edit/:email' component={Edit} />
+				<Route path='/post/:id' component={Post} />
 			</Router>
 		</>
 	)

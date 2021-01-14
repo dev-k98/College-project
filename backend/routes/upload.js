@@ -65,6 +65,7 @@ router.post("/", upload.single("file"), (req, res) => {
 		// res.status(200).send("ok")
 		// res.send(res)
 		pathhere = req.file.path
+		console.log(req.file)
 		res.send({ path: pathhere.slice(8, pathhere.length) })
 	} catch (err) {
 		res.status(400).send(err)

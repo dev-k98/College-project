@@ -1,5 +1,5 @@
 import React from "react"
-
+import axios from "axios"
 export default function Profileuser() {
-	return <div>addd user</div>
+	return <div>Adduser</div>
 }

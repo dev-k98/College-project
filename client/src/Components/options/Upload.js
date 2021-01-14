@@ -35,14 +35,15 @@ export default function Upload(props) {
 		// console.log(file)
 	}
 
+	let img
 	const handleData = data => {
 		if (data.status !== 200) {
 			console.log(data)
-		} else
-			props.history.push({
-				pathname: "/home",
-				response: { response: data },
-			})
+		} else img = data.path
+		// props.history.push({
+		// 	pathname: "/home",
+		// 	response: { response: data },
+		// })
 	}
 
 	return (
@@ -97,6 +98,7 @@ export default function Upload(props) {
 					<label className='lables'>Product Photos</label>
 					<input
 						type='file'
+						name='file'
 						className='upload inpcmpt'
 						onChange={e => {
 							const image = e.target.files[0]

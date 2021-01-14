@@ -3,7 +3,6 @@ import "../Styles/Navbar.css"
 import { Link } from "react-router-dom"
 
 //image
-import profile from "../Images/profile.svg"
 import search from "../Images/search.png"
 
 import logo from "../Images/logo1.svg"
@@ -47,7 +46,10 @@ export default function Navbar() {
 					onMouseLeave={mouseLeaves}
 					className='profile'
 				>
-					<Link to='/profile' className='nvi-opt'>
+					<Link
+						to='/profile/devkbabarwal@gmail.com'
+						className='nvi-opt'
+					>
 						Join
 					</Link>
 					{dropdown && <Dropdown />}

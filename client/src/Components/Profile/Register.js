@@ -27,14 +27,16 @@ export default function Register(props) {
 	}
 
 	const checkCred = data => {
-		if (data.errors.length > 0) {
+		if (data.errors) {
 			console.log("ran")
 			setwarning(data.errors[0].msg)
 			setclass({
 				color: "#ff0909",
 				padding: "5px",
 			})
-		} else props.history.push("/")
+		} else {
+			props.history.push("/")
+		}
 	}
 
 	return (
@@ -110,9 +112,9 @@ export default function Register(props) {
 					position: "fixed",
 					bottom: 0,
 					width: "100%",
-					"background-color": "black",
+					backgroundColor: "black",
 					color: "white",
-					"text-align": "center",
+					textAlign: "center",
 				}}
 			>
 				<Footer />

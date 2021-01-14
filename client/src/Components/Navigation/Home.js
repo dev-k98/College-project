@@ -24,9 +24,9 @@ export default function Home() {
 					// position: "fixed",
 					bottom: 0,
 					width: "100%",
-					"background-color": "black",
+					backgroundColor: "black",
 					color: "white",
-					"text-align": "center",
+					textAlign: "center",
 				}}
 			>
 				<Footer />

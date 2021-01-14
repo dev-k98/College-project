@@ -21,6 +21,24 @@ router.get("/", async (req, res) => {
 	res.send(item)
 })
 
+// @type    get
+// @route   /api/item/id
+// @desc    route for getting an item
+
+router.get("/:id", async (req, res) => {
+	const item = await Item.findOne(
+		{
+			_id: req.params.id,
+		},
+		(err, result) => {
+			if (err) console.log(err)
+			else {
+				res.send(result)
+			}
+		}
+	)
+})
+
 // @type    POST
 // @route   /api/item
 // @desc    route for adding item

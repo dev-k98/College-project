@@ -1,17 +1,81 @@
 .profile-main {
 	margin: 0 auto;
 	display: flex;
-	justify-content: space-around;
-	width: 80%;
+	padding: 1rem;
+	justify-content: start;
+	width: 70%;
+	margin: 1rem auto;
+	background-color: #d3d3d350;
+	border-radius: 3px;
 }
-
+.profile-photo {
+	padding: 1rem;
+	/* padding: 0.5rem 1rem; */
+	width: min-content;
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	margin: 1rem;
+	border-radius: 3px;
+	height: max-content;
+	background-color: #e63946;
+}
+.name {
+	/* font-family: Poppins; */
+	font-family: Raleway;
+	padding: 0 1rem;
+	font-size: 3rem;
+	font-weight: bold;
+	text-align: justify;
+}
+.profile-about,
+.profile-address {
+	font-family: Raleway;
+	font-size: 16px;
+	padding: 0.5rem 1rem;
+}
+.username {
+	padding: 0rem 1rem;
+	font-family: Poppins;
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+}
+.edit {
+	padding: 0.5rem 1rem;
+	border-bottom: 1px solid transparent;
+	transition: 0.3s ease-out;
+}
+.number {
+	padding: 0.5rem 1rem;
+	font-family: Poppins;
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+}
+.photo {
+	margin: 1rem;
+	height: 200px;
+	width: 200px;
+	background-color: none;
+	border: 1px solid black;
+	border-radius: 50%;
+}
+.profile-details {
+	padding: 1rem;
+	width: 100%;
+	border-radius: 3px;
+	height: max-content;
+}
 .req-excng,
 .ofrd-excng {
 	height: 200px;
-	width: 100%;
-	background-color: bisque;
+	margin: 1rem 1rem;
+	font-family: Poppins;
+	font-size: 14px;
+	background-color: #a8dadc;
+	border-radius: 3px;
 }
-.req-excng::after,
-.ofrd-excng::after {
-	text-indent: "+";
+
+.edit:hover {
+	border-bottom: 1px solid #a8dadc;
 }

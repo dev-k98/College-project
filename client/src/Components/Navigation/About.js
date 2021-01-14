@@ -17,7 +17,7 @@ export default function About() {
 				<div className='our-mission'>
 					<p>
 						To boost economy and support small buisness also
-						catering needs of all individuals.It also eliminates tge
+						catering needs of all individuals.It also eliminates tHe
 						deadlock caused by lash of money.
 						<br />
 						It is a very old policy of helping others and uniting
