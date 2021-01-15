@@ -13,6 +13,10 @@ const SchemaItem = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	user_email: {
+		type: String,
+		required: true,
+	},
 	item_location: {
 		type: String,
 		required: true,

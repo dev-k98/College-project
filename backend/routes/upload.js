@@ -20,20 +20,27 @@ var upload = multer({
 
 router.post("/", upload.single("file"), (req, res) => {
 	try {
+		console.log(req.body.user_email)
 		const {
 			item_name,
 			item_type,
+			item_location,
+			user_email,
 			item_description,
 			expected_exchange,
 		} = req.body
 		console.log(
-			"itemname" +
+			"itemname " +
 				item_name +
-				" itemtype" +
+				" itemtype " +
 				item_type +
-				" description" +
+				" item_location " +
+				item_location +
+				" user_email " +
+				user_email +
+				" description " +
 				item_description +
-				" exchange" +
+				" exchange " +
 				expected_exchange
 		)
 
@@ -49,6 +56,8 @@ router.post("/", upload.single("file"), (req, res) => {
 		const newItem = new Item({
 			item_name: item_name,
 			item_type: item_type,
+			user_email: user_email,
+			item_location: item_location,
 			item_description: item_description,
 			expected_exchange: expected_exchange,
 			images: image.image,

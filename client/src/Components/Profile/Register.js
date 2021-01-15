@@ -46,7 +46,7 @@ export default function Register(props) {
 				<form className='log-cont' onSubmit={credCheck}>
 					<h1 className='login'>Register</h1>
 					<input
-						className='username inpcmpt'
+						className='inpcmpt'
 						type='username'
 						placeholder='Username'
 						value={cred.username}

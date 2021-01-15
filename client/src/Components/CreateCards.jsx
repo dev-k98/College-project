@@ -23,8 +23,9 @@ export default function CreateCards({ details }) {
 									<img src='#' alt='' />
 								</div>
 								<div className='info'>
-									<h2>{item.item_description}</h2>
-									<h2>{item.expected_exchange}</h2>
+									<h2>{item.item_name}</h2>
+									<h2>{item.item_type}</h2>
+									<h2>{item.item_location}</h2>
 
 									<div className='buttons'>
 										<button type='button'>message</button>

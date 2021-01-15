@@ -8,6 +8,8 @@ export default function Upload(props) {
 	const [details, setDetails] = useState({
 		item_name: "",
 		item_type: "",
+		user_email: "",
+		item_location: "",
 		item_description: "",
 		expected_exchange: "",
 		submit: "Submit",
@@ -19,9 +21,12 @@ export default function Upload(props) {
 		const data = new FormData()
 		data.append("item_name", details.item_name)
 		data.append("item_type", details.item_type)
-		data.append("item_description", details.item_name)
+		data.append("user_email", "devkbabarwal@gmail.com")
+		data.append("item_location", details.item_location)
+		data.append("item_description", details.item_description)
 		data.append("expected_exchange", details.expected_exchange)
 		data.append("file", file)
+
 		axios({
 			method: "POST",
 			data: data,
@@ -35,15 +40,14 @@ export default function Upload(props) {
 		// console.log(file)
 	}
 
-	let img
 	const handleData = data => {
 		if (data.status !== 200) {
 			console.log(data)
-		} else img = data.path
-		// props.history.push({
-		// 	pathname: "/home",
-		// 	response: { response: data },
-		// })
+		} else
+			props.history.push({
+				pathname: "/home",
+				response: { response: data },
+			})
 	}
 
 	return (
@@ -70,6 +74,17 @@ export default function Upload(props) {
 							setDetails({
 								...details,
 								item_type: e.target.value,
+							})
+						}
+					></input>
+					<label className='lables'>Product location</label>
+					<input
+						type='text'
+						className='upload inpcmpt'
+						onChange={e =>
+							setDetails({
+								...details,
+								item_location: e.target.value,
 							})
 						}
 					></input>

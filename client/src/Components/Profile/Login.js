@@ -24,18 +24,19 @@ export default function Login(props) {
 
 			// withCredentials: true,
 			url: "http://localhost:7000/users/login",
-		}).then(res => checkCred(res.data))
+		}).then(res => checkCred(res))
 		e.preventDefault()
 	}
 
 	const checkCred = data => {
-		if (data.message) {
+		if (data.data.message) {
 			setwarning(data.message)
 			setclass({
 				color: "#ff0909",
 				padding: "5px",
 			})
-		} else props.history.push("/")
+		} else console.log(data)
+		// props.history.push("/")
 	}
 
 	return (

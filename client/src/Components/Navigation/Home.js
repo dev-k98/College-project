@@ -9,6 +9,11 @@ import Toolbar from "../Toolbar/Toolbar"
 import Footer from "../Footer"
 
 export default function Home() {
+	fetch({
+		method: "GET",
+		url: "http://localhost:7000/",
+	}).then(res => console.log(res))
+
 	return (
 		<>
 			<header className='header'>

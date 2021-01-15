@@ -39,8 +39,8 @@
 	color: rgb(0, 0, 0);
 	justify-content: center;
 	align-items: center;
-	height: 20rem;
-	padding: 1rem 1rem;
+	height: max-content;
+	padding: 1rem 2rem;
 	width: 12rem;
 	margin: 10px;
 	border-radius: 5px;
@@ -65,7 +65,7 @@
 	font-family: "poppins", sans-serif;
 	background-size: cover;
 	height: auto;
-	width: 12rem;
+	width: max-content;
 	padding: 1rem 1rem;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease-in-out;
@@ -79,7 +79,6 @@
 
 .info h2 {
 	font-size: 1rem;
-	margin-top: 0.5rem;
 }
 
 .buttons {
