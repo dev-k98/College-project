@@ -13,6 +13,10 @@ const SchemaItem = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	item_location: {
+		type: String,
+		required: true,
+	},
 	item_status: { type: Boolean, default: "true" },
 	post_date: { type: Date, default: Date.now() },
 	deal_date: { type: Date },
