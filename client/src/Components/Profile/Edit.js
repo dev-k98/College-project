@@ -8,7 +8,10 @@ import "./Edit.css"
 
 export default function Edit(props) {
 	const [vis, setvis] = useState(false)
+	const [submit, setSubmit] = useState(false)
 	const [profile, setprofile] = useState({})
+	const [style, setstyle] = useState()
+	const [stylenum, setstylenum] = useState()
 
 	useEffect(() => {
 		fetchData()
@@ -24,18 +27,38 @@ export default function Edit(props) {
 	}
 
 	const confirmChanges = () => {
-		console.log(props)
-		axios({
-			method: "POST",
-			data: profile,
-			url: `http://localhost:7000/users/edit`,
-		}).then(res => response(res.statusText))
+		if (submit)
+			axios({
+				method: "POST",
+				data: profile,
+				url: `http://localhost:7000/users/edit`,
+			}).then(res => response(res.statusText))
 	}
 
 	const response = data => {
 		if (data === "OK") props.history.push(`/profile/${profile.email}`)
 		else {
 			console.log("error")
+		}
+	}
+
+	const checkPass = data => {
+		if (profile.password !== data) setstyle("wrong")
+		else {
+			setstyle("")
+			setSubmit(true)
+		}
+	}
+	const phoneCheck = data => {
+		// console.log(umber.parseInt(data))
+		let num = Number.parseInt(data)
+		console.log(typeof num)
+		if (num < 999999999 || num > 9999999999 || isNaN(num))
+			setstylenum("wrong")
+		else {
+			setprofile({ ...profile, phoneno: data })
+			setstylenum("")
+			setSubmit(true)
 		}
 	}
 
@@ -106,14 +129,14 @@ export default function Edit(props) {
 									password: e.target.value,
 								})
 							}
-							className='profile-about-input'
+							className='password-input'
 						></input>
-						{/* <input
+						<input
 							placeholder='Confirm password'
 							type='password'
-							onChange={e=>setprofile({...profile , name:e.target.value})}
-							className='profile-about-input'
-						></input> */}
+							onChange={e => checkPass(e.target.value)}
+							className={`password-input ${style}`}
+						></input>
 						<input
 							placeholder={profile.about}
 							onChange={e =>
@@ -136,24 +159,19 @@ export default function Edit(props) {
 						></input>
 						<input
 							placeholder={profile.phoneno}
-							onChange={e =>
-								setprofile({
-									...profile,
-									phoneno: e.target.value,
-								})
-							}
-							className='number-input'
+							onChange={e => phoneCheck(e.target.value)}
+							className={`number-input ${stylenum}`}
 						></input>
 					</div>
-					<h3 className='edit'>
-						<button onClick={confirmChanges}>Confirm Edit</button>
-					</h3>
+
+					<button className='edit' onClick={confirmChanges}>
+						Confirm Edit
+					</button>
 				</div>
 			</div>
 
 			<div
 				style={{
-					position: "fixed",
 					bottom: 0,
 					width: "100%",
 					backgroundColor: "black",

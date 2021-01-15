@@ -6,6 +6,7 @@
 	align-items: center;
 	flex-flow: column;
 	margin: 1rem;
+	min-width: 200px;
 	border-radius: 3px;
 	height: max-content;
 }
@@ -66,4 +67,32 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.details-input {
+	display: flex;
+	flex-flow: column;
+	padding: 0.5rem 1rem;
+}
+
+.name-input,
+.username-input,
+.profile-about-input,
+.password-input,
+.profile-addressinput,
+.number-input {
+	height: 2rem;
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	border: 1px solid transparent;
+	background-color: #a8dadc;
+}
+.details-input span {
+	position: absolute;
+}
+.wrong {
+	display: flex;
+	background-color: #e639473b;
+	font-family: Raleway;
+	font-style: italic;
 }
