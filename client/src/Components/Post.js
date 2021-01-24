@@ -3,16 +3,20 @@ import React, { useEffect, useState } from "react"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
 import "../Styles/PostDetail.css"
+import config from "./config"
 
 export default function Post(props) {
 	console.log()
 	const [vis, setvis] = useState(false)
 	const [post, setPost] = useState()
 	const [user, setuser] = useState()
+	const [del, setdel] = useState()
+	const [logger, setlogger] = useState()
 	const [cls, setcls] = useState("hide")
 
 	useEffect(() => {
 		fetchData()
+		config.then(res => setlogger(res.user))
 	}, [vis])
 
 	const fecthUser = () => {
@@ -24,7 +28,19 @@ export default function Post(props) {
 			setcls("contact-details")
 		})
 	}
+	const deleteConfirm = () => {
+		console.log(post._id)
+		axios({
+			method: "POST",
+			data: { id: post._id },
+			url: `http://localhost:7000/item/remove`,
+		}).then(res => props.history.push("/"))
+	}
 
+	const deletePost = () => {
+		setdel(true)
+		setcls("contact-details")
+	}
 	const setclass = () => {
 		setcls("hide")
 	}
@@ -35,6 +51,7 @@ export default function Post(props) {
 			url: `http://localhost:7000/item/${props.match.params.id}`,
 		}).then(res => setPost(res.data))
 	}
+
 	if (!vis) setvis(!vis)
 	return (
 		<div>
@@ -52,14 +69,35 @@ export default function Post(props) {
 						</div>
 					</div>
 				</div>
-			) : (
-				<></>
-			)}
+			) : null}
+			{del ? (
+				<div className={cls}>
+					<div className='contacts-main'>
+						<button onClick={setclass} className='cross'>
+							+
+						</button>
+						<div className='contact'>
+							<h1 className='user-name'>Remove Post</h1>
+							<h3 className='cont-number'>{post.item_name}</h3>
+							<button
+								onClick={deleteConfirm}
+								className='contact-msg'
+							>
+								Confirm
+							</button>
+						</div>
+					</div>
+				</div>
+			) : null}
 			{post ? (
 				<>
 					<div className='post-main'>
 						<div className='post-photo'>
-							<img className='post-photo' src={"#"} alt='DP' />
+							<img
+								className='post-photo'
+								src={`./Upload/${post.images}`}
+								alt='DP'
+							/>
 						</div>
 						<div className='post-details'>
 							<h1>
@@ -92,9 +130,23 @@ export default function Post(props) {
 								<span>Location</span>
 							</h2>
 							<div className='item-loc'>{post.item_location}</div>
-							<button onClick={fecthUser} className='contact-msg'>
-								Contact
-							</button>
+							{vis ? (
+								logger.email === post.user_email ? (
+									<button
+										onClick={deletePost}
+										className='contact-msg'
+									>
+										Remove
+									</button>
+								) : (
+									<button
+										onClick={fecthUser}
+										className='contact-msg'
+									>
+										Contact
+									</button>
+								)
+							) : null}
 						</div>
 					</div>
 				</>

@@ -4,6 +4,7 @@
 	padding: 1rem;
 	justify-content: start;
 	width: 70%;
+	position: relative;
 	margin: 1rem auto;
 	background-color: #d3d3d350;
 	border-radius: 3px;
@@ -60,10 +61,23 @@
 	border: 1px solid black;
 	border-radius: 50%;
 }
+
+.postcont {
+	margin: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-flow: row;
+}
 .profile-details {
+	flex-flow: column;
+	overflow-y: hidden;
+	display: flex;
+	flex-wrap: wrap;
 	padding: 1rem;
-	width: 100%;
 	border-radius: 3px;
+}
+
+.profile-post {
 	height: max-content;
 }
 .req-excng,

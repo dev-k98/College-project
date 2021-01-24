@@ -11,6 +11,7 @@ import Upload from "./Components/options/Upload"
 import Photos from "./Components/Photos"
 import Post from "./Components/Post"
 import Edit from "./Components/Profile/Edit"
+import axios from "axios"
 
 export default function App() {
 	return (

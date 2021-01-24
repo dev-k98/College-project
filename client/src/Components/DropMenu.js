@@ -1,9 +1,17 @@
-export const Dropmenu = [
+export const login = [
 	{
-		title: "View Profile",
-		link: "/profile",
-		class: "viw",
+		title: "Request Exchange",
+		link: "/upload",
+		class: "lgt",
 	},
+	{
+		title: "Log out",
+		link: "/",
+		onclick: true,
+		class: "lgt",
+	},
+]
+export const signup = [
 	{
 		title: "Register",
 		link: "/signup",
@@ -13,20 +21,5 @@ export const Dropmenu = [
 		title: "Log in",
 		link: "/login",
 		class: "cred",
-	},
-	{
-		title: "Offer Exchange",
-		link: "/post/:user",
-		class: "lgt",
-	},
-	{
-		title: "Request Exchange",
-		link: "/upload",
-		class: "lgt",
-	},
-	{
-		title: "Log out",
-		link: "/logout",
-		class: "lgt",
 	},
 ]

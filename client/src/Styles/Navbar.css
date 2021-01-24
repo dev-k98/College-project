@@ -56,3 +56,40 @@
 .profile:hover {
 	position: relative;
 }
+
+.search-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	height: 25px;
+	padding: 2px 0px;
+	border-radius: 30px;
+	background-color: #f2f2f2;
+}
+
+.search {
+	border: none;
+	outline: none;
+	background-color: #f2f2f2;
+	font-size: 14px;
+	margin: 5px;
+	padding: 0 10px;
+	font-family: Raleway, sans-serif;
+}
+.search-button {
+	position: relative;
+	border: none;
+	outline: none;
+	height: 28px;
+	width: 28px;
+	background: none;
+	align-self: center;
+	padding: 6px;
+	border-radius: 50%;
+	transition: 0.3s ease-in-out;
+}
+
+.search-button:hover {
+	background: #c6c4c4;
+}

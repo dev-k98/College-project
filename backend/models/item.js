@@ -30,7 +30,7 @@ const SchemaItem = new mongoose.Schema({
 		required: true,
 	},
 	video: { type: Array },
-	images: { type: Buffer, contentType: String },
+	images: { type: String, contentType: String },
 	item_description: {
 		type: String,
 		required: true,

@@ -8,7 +8,8 @@ const Item = require("../models/item.js")
 //multer setting
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, "images")
+		// cb(null, "images")
+		cb(null, `../client/src/Components/upload`)
 	},
 	filename: function (req, file, cb) {
 		cb(null, uuid() + "-" + Date.now() + path.extname(file.originalname))
@@ -60,7 +61,7 @@ router.post("/", upload.single("file"), (req, res) => {
 			item_location: item_location,
 			item_description: item_description,
 			expected_exchange: expected_exchange,
-			images: image.image,
+			images: req.file.path.slice(32, req.file.path.length),
 		})
 
 		newItem

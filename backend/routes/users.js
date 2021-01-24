@@ -12,7 +12,16 @@ let options = {
 }
 
 router.get("/login", (req, res) => {
-	res.render("login")
+	console.log(req.session.user)
+	if (req.session.user)
+		res.send({
+			loggedIn: true,
+			user: req.session.user,
+		})
+	else
+		res.send({
+			loggedIn: false,
+		})
 })
 
 router.get("/register", (req, res) => {
@@ -30,10 +39,8 @@ router.post("/login", (req, res, next) => {
 		(err, user, msg) => {
 			if (err) res.send(err)
 			if (user) {
-				console.log("asdfasd")
-				if (req.body.username) console.log("ran")
-				// res.cookie("username", req.body.username, options);
-				res.cookie("email", req.body.email, options)
+				res.cookie("username", req.body.email, options)
+				req.session.user = user
 				res.send(user)
 			}
 			if (msg) res.send(msg)
@@ -111,12 +118,15 @@ router.post("/register", (req, res) => {
 })
 
 router.get("/logout", (req, res) => {
-	// res.clearCookie("username");
+	res.clearCookie("username")
 	// res.clearCookie("name");
+	console.log("ram")
+	// req.session.user = null
+	// req.session.email = null
 	res.clearCookie("email")
+	res.clearCookie("user")
 	req.logout()
-	req.flash("success_msg", "Now Logged Out")
-	res.redirect("/users/login")
+	res.status(200).send()
 })
 
 // to get specific user profile and edit it
@@ -134,28 +144,34 @@ router.get("/:email", async (req, res) => {
 // @desc    route for editing profile
 
 router.post("/edit", async (req, res) => {
-	console.log(req.body)
-	User.findOneAndUpdate(
-		{
-			email: req.body.email,
-		},
-		{
-			$set: {
-				username: req.body.username,
-				email: req.body.email,
-				name: req.body.name,
-				password: req.body.password,
-				images: req.body.images,
-				about: req.body.about,
-				phoneno: req.body.phoneno,
-				address: req.body.address,
-			},
-		},
+	var password = req.body.password
+	bcrypt.genSalt(10, (err, salt) =>
+		bcrypt.hash(password, salt, (err, hash) => {
+			if (err) throw err
+			password = hash
+			User.findOneAndUpdate(
+				{
+					email: req.body.email,
+				},
+				{
+					$set: {
+						username: req.body.username,
+						email: req.body.email,
+						name: req.body.name,
+						password: password,
+						images: req.body.images,
+						about: req.body.about,
+						phoneno: req.body.phoneno,
+						address: req.body.address,
+					},
+				},
 
-		{ new: true, upsert: true }
+				{ new: true, upsert: true }
+			)
+				.then(res => res.send("ok"))
+				.catch(err => res.send(err))
+		})
 	)
-		.then(res => res.send("ok"))
-		.catch(err => res.send(err))
 })
 
 module.exports = router

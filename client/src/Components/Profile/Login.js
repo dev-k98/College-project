@@ -4,6 +4,7 @@ import Navbar from "../Navbar"
 import axios from "axios"
 import "./Login.css"
 import Footer from "../Footer"
+
 export default function Login(props) {
 	const [cred, setCred] = useState({
 		email: "",
@@ -13,6 +14,7 @@ export default function Login(props) {
 	const [warning, setwarning] = useState("")
 	const [cls, setclass] = useState({ display: "hidden" })
 
+	axios.defaults.withCredentials = true
 	const credCheck = e => {
 		axios({
 			method: "POST",
@@ -30,13 +32,13 @@ export default function Login(props) {
 
 	const checkCred = data => {
 		if (data.data.message) {
-			setwarning(data.message)
+			setwarning(data.data.message)
 			setclass({
+				display: "flex",
 				color: "#ff0909",
 				padding: "5px",
 			})
-		} else console.log(data)
-		// props.history.push("/")
+		} else props.history.push("/home")
 	}
 
 	return (
@@ -84,9 +86,9 @@ export default function Login(props) {
 					position: "fixed",
 					bottom: 0,
 					width: "100%",
-					"background-color": "black",
+					backgroundColor: "black",
 					color: "white",
-					"text-align": "center",
+					textAlign: "center",
 				}}
 			>
 				<Footer />

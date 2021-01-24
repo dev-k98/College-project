@@ -1,22 +1,30 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "../Styles/Navbar.css"
 import { Link } from "react-router-dom"
-
 //image
 import search from "../Images/search.png"
+import config from "./config"
 
 import logo from "../Images/logo1.svg"
 import Dropdown from "./Dropdown"
 
 export default function Navbar() {
 	const [dropdown, setDropdown] = useState(false)
-
 	const mouseEntered = () => {
 		setDropdown(true)
 	}
 	const mouseLeaves = () => {
 		setDropdown(false)
 	}
+	const [user, setuser] = useState({})
+	const [vis, setvis] = useState(false)
+
+	useEffect(() => {
+		config.then(res => setuser(res.user))
+	}, [vis])
+
+	if (!vis) setvis(!vis)
+	let email = user ? user.email : ""
 
 	return (
 		<div className='navbar'>
@@ -35,9 +43,9 @@ export default function Navbar() {
 				<Link to='/Home'>
 					<li className='home nvi-opt'>Home</li>
 				</Link>
-				<Link to='/Notifications'>
+				{/* <Link to='/Notifications'>
 					<li className='nftn nvi-opt'>Inbox</li>
-				</Link>
+				</Link> */}
 				<Link to='/About'>
 					<li className='about nvi-opt'>About</li>
 				</Link>
@@ -47,10 +55,19 @@ export default function Navbar() {
 					className='profile'
 				>
 					<Link
-						to='/profile/devkbabarwal@gmail.com'
+						to={{ pathname: `/profile/${email}` }}
 						className='nvi-opt'
 					>
-						Join
+						{user ? (
+							user.name
+						) : (
+							<Link
+								to={{ pathname: `/signup` }}
+								className='nvi-opt'
+							>
+								join
+							</Link>
+						)}
 					</Link>
 					{dropdown && <Dropdown />}
 				</div>

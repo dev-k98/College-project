@@ -1,25 +1,20 @@
 import React from "react"
 
 import Navbar from "../Navbar"
-import Options from "../options/Options"
+// import Options from "../options/Options"
 import PostFirst from "../PostFirst"
 import SecondPost from "../SecondPost"
 import Scroller from "../Scroller"
-import Toolbar from "../Toolbar/Toolbar"
+// import Toolbar from "../Toolbar/Toolbar"
 import Footer from "../Footer"
 
 export default function Home() {
-	fetch({
-		method: "GET",
-		url: "http://localhost:7000/",
-	}).then(res => console.log(res))
-
 	return (
 		<>
 			<header className='header'>
 				<Navbar />
-				<Toolbar />
-				<Options />
+				{/* <Toolbar /> */}
+				{/* <Options /> */}
 			</header>
 			<Scroller />
 			<PostFirst />

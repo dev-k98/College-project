@@ -5,23 +5,38 @@ import axios from "axios"
 import "./profile.css"
 import img from "../../Images/profile.svg"
 import Footer from "../Footer"
+import CreateCards from "../CreateCards"
 
 export default function Profile(props) {
 	const [vis, setvis] = useState(false)
+	const [data, setdata] = useState()
 	const [profile, setprofile] = useState({})
 
 	useEffect(() => {
-		fetchData()
+		getProfile()
 	}, [vis])
+	useEffect(() => {
+		getPost()
+	}, [profile])
 
-	const fetchData = () => {
-		axios({
+	if (!vis) setvis(!vis)
+
+	const getProfile = async () => {
+		await axios({
 			method: "GET",
 			url: `http://localhost:7000/users/${props.match.params.email}`,
-		}).then(res => setprofile(res.data[0]))
+		}).then(res => {
+			setprofile(res.data[0])
+		})
 	}
-	console.log(profile)
-	if (!vis) setvis(!vis)
+
+	const getPost = async () => {
+		await axios({
+			method: "POST",
+			data: { email: profile.email },
+			url: `http://localhost:7000/item/show`,
+		}).then(res => setdata(res.data))
+	}
 
 	return (
 		<>
@@ -45,11 +60,10 @@ export default function Profile(props) {
 				</div>
 				<div className='profile-details'>
 					<div className='name'>Hi ! This is {profile.name}</div>
-					<div className='req-excng'>
-						<h3>Requested exchanges</h3>
-					</div>
-					<div className='ofrd-excng'>
-						<h3>Offered exchanges</h3>
+					<div className='postcont'>
+						{data ? (
+							<CreateCards details={data} className='card-flow' />
+						) : null}
 					</div>
 				</div>
 			</div>

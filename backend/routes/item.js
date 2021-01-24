@@ -21,6 +21,33 @@ router.get("/", async (req, res) => {
 	res.send(item)
 })
 
+router.post("/remove", (req, res) => {
+	var id = req.body.id
+	var record = { _id: id }
+	console.log(id)
+	Item.deleteOne(record, function (err, obj) {
+		if (err) throw err
+		res.send("Document deleted")
+	})
+})
+
+router.post("/show", async (req, res) => {
+	var email = req.body.email
+	var record = { user_email: email }
+	console.log(record)
+	const item = await Item.find(
+		{
+			user_email: email,
+		},
+		(err, result) => {
+			if (err) throw err
+			else {
+				// res.send(result[5].images)
+			}
+		}
+	)
+	res.send(item)
+})
 // @type    get
 // @route   /api/item/id
 // @desc    route for getting an item
