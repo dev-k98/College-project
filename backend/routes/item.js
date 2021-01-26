@@ -65,6 +65,20 @@ router.get("/:id", async (req, res) => {
 		}
 	)
 })
+router.get("/find/:type", async (req, res) => {
+	console.log(req.params.type)
+	const item = await Item.find(
+		{
+			item_type: req.params.type,
+		},
+		(err, result) => {
+			if (err) console.log(err)
+			else {
+				res.send(result)
+			}
+		}
+	)
+})
 
 // @type    POST
 // @route   /api/item

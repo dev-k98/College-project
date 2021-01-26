@@ -20,7 +20,14 @@ export default function CreateCards({ details }) {
 						>
 							<div className='card'>
 								<div className='image'>
-									<img src='#' alt='' />
+									<img
+										src={
+											item
+												? `http://localhost:7000/images/${item.images}`
+												: `http://localhost:7000/images/services.png`
+										}
+										alt=''
+									/>
 								</div>
 								<div className='info'>
 									<h2>{item.item_name}</h2>

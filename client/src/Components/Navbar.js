@@ -10,6 +10,8 @@ import Dropdown from "./Dropdown"
 
 export default function Navbar() {
 	const [dropdown, setDropdown] = useState(false)
+	const [srch, setsrch] = useState("")
+
 	const mouseEntered = () => {
 		setDropdown(true)
 	}
@@ -33,9 +35,15 @@ export default function Navbar() {
 					<img className='logo' src={logo} alt='Barter' />
 				</Link>
 				<div className='search-section'>
-					<input className='search' placeholder='Search...'></input>
+					<input
+						className='search'
+						placeholder='Search...'
+						onChange={e => setsrch(e.target.value)}
+					></input>
 					<button className='search-button'>
-						<img src={search} alt='search' />
+						<Link to={{ pathname: `/item/${srch}` }}>
+							<img src={search} alt='search' />
+						</Link>
 					</button>
 				</div>
 			</h1>

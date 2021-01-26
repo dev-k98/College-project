@@ -3,6 +3,7 @@ import Navbar from "../Navbar"
 import "./Upload.css"
 import axios from "axios"
 import config from "../config"
+import Footer from "../Footer"
 
 export default function Upload(props) {
 	const [file, setFile] = useState()
@@ -28,10 +29,10 @@ export default function Upload(props) {
 		e.preventDefault()
 
 		const data = new FormData()
-		data.append("item_name", details.item_name)
-		data.append("item_type", details.item_type)
+		data.append("item_name", details.item_name.toLowerCase())
+		data.append("item_type", details.item_type.toLowerCase())
 		data.append("user_email", user.email)
-		data.append("item_location", details.item_location)
+		data.append("item_location", details.item_location.toLowerCase())
 		data.append("item_description", details.item_description)
 		data.append("expected_exchange", details.expected_exchange)
 		data.append("file", file)
@@ -44,22 +45,14 @@ export default function Upload(props) {
 			},
 			url: "http://localhost:7000/upload/",
 		})
-			// .then(res => console.log(res))
 			.then(res => handleData(res))
 			.catch(err => console.log(err))
-
-		// console.log(details)
-		// console.log(file)
 	}
 
 	const handleData = data => {
 		if (data.status !== 200) {
 			console.log(data)
-		} else
-			props.history.push({
-				pathname: "/home",
-				response: { response: data },
-			})
+		} else props.history.push("/")
 	}
 
 	return (
@@ -136,6 +129,18 @@ export default function Upload(props) {
 						Upload
 					</button>
 				</form>
+			</div>
+			<div
+				style={{
+					position: "fixed",
+					bottom: 0,
+					width: "100%",
+					backgroundColor: "black",
+					color: "white",
+					textAlign: "center",
+				}}
+			>
+				<Footer />
 			</div>
 		</>
 	)

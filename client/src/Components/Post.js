@@ -11,12 +11,14 @@ export default function Post(props) {
 	const [post, setPost] = useState()
 	const [user, setuser] = useState()
 	const [del, setdel] = useState()
+	const [img, setimg] = useState()
 	const [logger, setlogger] = useState()
 	const [cls, setcls] = useState("hide")
 
 	useEffect(() => {
 		fetchData()
 		config.then(res => setlogger(res.user))
+		if (post) setimg("http://localhost:7000/public/images/", post.images)
 	}, [vis])
 
 	const fecthUser = () => {
@@ -28,6 +30,7 @@ export default function Post(props) {
 			setcls("contact-details")
 		})
 	}
+
 	const deleteConfirm = () => {
 		console.log(post._id)
 		axios({
@@ -62,11 +65,15 @@ export default function Post(props) {
 						<button onClick={setclass} className='cross'>
 							+
 						</button>
-						<div className='contact'>
-							<h1 className='user-name'>{user.name}</h1>
-							<h3 className='cont-number'>{user.phoneno}</h3>
-							<h3 className='cont-email'>{user.email}</h3>
-						</div>
+						{logger ? (
+							<div className='contact'>
+								<h1 className='user-name'>{user.name}</h1>
+								<h3 className='cont-number'>{user.phoneno}</h3>
+								<h3 className='cont-email'>{user.email}</h3>
+							</div>
+						) : (
+							<h1 className='user-name'>login First</h1>
+						)}
 					</div>
 				</div>
 			) : null}
@@ -76,6 +83,7 @@ export default function Post(props) {
 						<button onClick={setclass} className='cross'>
 							+
 						</button>
+
 						<div className='contact'>
 							<h1 className='user-name'>Remove Post</h1>
 							<h3 className='cont-number'>{post.item_name}</h3>
@@ -95,7 +103,11 @@ export default function Post(props) {
 						<div className='post-photo'>
 							<img
 								className='post-photo'
-								src={`./Upload/${post.images}`}
+								src={
+									post
+										? `http://localhost:7000/images/${post.images}`
+										: `http://localhost:7000/images/services.png`
+								}
 								alt='DP'
 							/>
 						</div>
@@ -130,7 +142,7 @@ export default function Post(props) {
 								<span>Location</span>
 							</h2>
 							<div className='item-loc'>{post.item_location}</div>
-							{vis ? (
+							{logger ? (
 								logger.email === post.user_email ? (
 									<button
 										onClick={deletePost}
@@ -146,7 +158,14 @@ export default function Post(props) {
 										Contact
 									</button>
 								)
-							) : null}
+							) : (
+								<button
+									onClick={fecthUser}
+									className='contact-msg'
+								>
+									Contact
+								</button>
+							)}
 						</div>
 					</div>
 				</>

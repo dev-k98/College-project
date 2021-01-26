@@ -7,8 +7,9 @@ export default function Footer() {
 			<Link to='/about'>
 				<div className='footer-links'>About Us</div>
 			</Link>
-			<div className='footer-links'>Contact US</div>
-			<div className='footer-links'>Help</div>
+			<Link to='/help'>
+				<div className='footer-links'>Help</div>
+			</Link>
 			<a
 				href='https://github.com/dev-k98/College-project'
 				className='footer-links'

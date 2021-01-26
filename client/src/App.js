@@ -11,7 +11,8 @@ import Upload from "./Components/options/Upload"
 import Photos from "./Components/Photos"
 import Post from "./Components/Post"
 import Edit from "./Components/Profile/Edit"
-import axios from "axios"
+import Help from "./Components/Help"
+import Search from "./Components/Search"
 
 export default function App() {
 	return (
@@ -19,6 +20,7 @@ export default function App() {
 			<Router>
 				<Route path='/' exact component={Home} />
 				<Route path='/home' exact component={Home} />
+				<Route path='/help' exact component={Help} />
 				<Route path='/profile/:email' component={Profile} />
 				<Route path='/signup' component={Register} />
 				<Route path='/login' component={Login} />
@@ -26,6 +28,7 @@ export default function App() {
 				<Route path='/About' component={About} />
 				<Route path='/upload' component={Upload} />
 				<Route path='/photos' component={Photos} />
+				<Route path='/item/:type' component={Search} />
 				<Route path='/edit/:email' component={Edit} />
 				<Route path='/post/:id' component={Post} />
 			</Router>

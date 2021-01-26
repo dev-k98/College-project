@@ -1,0 +1,31 @@
+.report-outer-cont {
+	margin: 8% 0;
+}
+.report-cont {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	width: 100%;
+	font-family: Poppins;
+}
+
+.disc,
+.subject {
+	font-family: Raleway;
+	padding: 1rem;
+	margin: 1rem;
+	width: 30%;
+	border: none;
+	background-color: #a8dadc;
+}
+
+.disc {
+	height: 100px;
+}
+.report-button {
+	border: none;
+	border-radius: 5px;
+	padding: 1rem;
+	background-color: #e63946;
+}
